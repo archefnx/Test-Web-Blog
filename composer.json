@@ -1,0 +1,22 @@
+{
+    "name": "olzhas/testsite",
+    "description": "topsite",
+    "authors": [
+        {
+            "name": "user",
+            "email": "artykbaiev0000@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "slim/slim": "^4.8",
+        "slim/psr7": "^1.4",
+        "twig/twig": "^3.3",
+        "ext-pdo": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Blog\\": "src/"
+        }
+    }
+}

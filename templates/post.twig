@@ -1,0 +1,18 @@
+{% extends 'base.twig' %}
+
+{% block body %}
+    <div class="container col-md-7">
+        {% if post.image_path is not null %}
+        <img src="{{ post.image_path }}" class="img-fluid mt-3" alt="{{ post.title|escape }}">
+        {% endif %}
+        <h3 class="mt-3 text-center">{{ post.title|escape }}</h3>
+            <div class="container mb-3">
+                <div class="row">
+                    <span class="text-muted text-center">Sergei Propenko | {{ post.publisher_date|date("F d, Y") }}</span>
+                </div>
+            </div>
+        <div class="">
+            {{ post.content|raw }}
+        </div>
+    </div>
+{% endblock %}

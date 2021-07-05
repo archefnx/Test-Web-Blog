@@ -1,0 +1,25 @@
+<nav aria-label="Blog pagination">
+    <ul class="pagination">
+        {% if pagination.current > 1 %}
+            <li class="page-item">
+                <a class="page-link"
+                   href="{{ (pagination.current - 1) }}"
+                >Назад</a>
+            </li>
+        {% endif %}
+        {% for page in 1..pagination.paging %}
+            <li class="page-item {% if pagination.current == page %} active {% endif %}">
+                <a class="page-link"
+                   href="{{ page }}"
+                >{{ page }}</a>
+            </li>
+        {% endfor %}
+        {% if pagination.current < pagination.paging %}
+            <li class="page-item">
+                <a class="page-link"
+                   href="{{ (pagination.current + 1) }}"
+                >Следующая</a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>

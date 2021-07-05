@@ -1,0 +1,12 @@
+aside {
+    min-height: 700px;
+}
+
+main {
+    min-height: 860px;
+}
+
+.a-control {
+    color: white;
+    text-decoration: none;
+}
