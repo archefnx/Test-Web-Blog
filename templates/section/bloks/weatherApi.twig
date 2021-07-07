@@ -1,0 +1,6 @@
+<div class="weather">
+    <h2>Погода в городе {{ weatherData.name }}</h2>
+    <p>Погода: <?php echo $data->main->temp_min; ?>°C</p>
+    <p>Влажность: <?php echo $data->main->humidity; ?> %</p>
+    <p>Ветер: <?php echo $data->wind->speed; ?> км/ч</p>
+</div>

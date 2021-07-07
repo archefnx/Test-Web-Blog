@@ -37,7 +37,18 @@ $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
 $app->add(new TwigMiddleware($view));
 
-$app->get('/', function (Request $request, Response $response) use ($view, $connection, $cookie) {
+$apiKey ='e25f74c76d7bb4c2b57830ab9b129c16';
+$city = "Moscow";
+$url = "http://api.openweathermap.org/data/2.5/weather?q=" . $city . "&lang=ru&units=metric&appid=" . $apiKey;
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_URL, $url);
+
+$weatherData = json_decode(curl_exec($ch));
+curl_close($ch);
+
+$app->get('/', function (Request $request, Response $response) use ($view, $connection, $cookie, $weatherData) {
     $latestPosts = new LatestPosts($connection);
     $posts = $latestPosts->get(3);
 
@@ -46,7 +57,8 @@ $app->get('/', function (Request $request, Response $response) use ($view, $conn
     $body = $view->render('index.twig', [
         'posts' => $posts,
         'cookie' => $cookie,
-        'regCookie' => $regCookie
+        'regCookie' => $regCookie,
+        'weatherData' => $weatherData
     ]);
     $response->getBody()->write($body);
     return $response;

@@ -2,4 +2,7 @@
     <h1 class="text-center">Сайдбар</h1>
     <p>Сайдбар – это закрепленная боковая панель ресурса, область навигации или вспомогательной информации, графически отделенная от основной области контента.</p>
     <p>Пройдите тест пожалуйста<a href="test" class="btn btn-outline-primary text-center" target="_blank">Пройти</a></p>
+    {% if weatherData is not null %}
+        {% include 'weatherApi.twig' %}
+    {% endif %}
 </aside>
