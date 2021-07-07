@@ -2,6 +2,7 @@
     <h1 class="text-center">Сайдбар</h1>
     <p>Сайдбар – это закрепленная боковая панель ресурса, область навигации или вспомогательной информации, графически отделенная от основной области контента.</p>
     <p>Пройдите тест пожалуйста<a href="test" class="btn btn-outline-primary text-center" target="_blank">Пройти</a></p>
+
     {% if weatherData is not null %}
         <div class="weather">
             <h5>Погода в городе: <br>{{ weatherData.name }}</h5>
@@ -10,4 +11,6 @@
             <p>Ветер: {{ weatherData.wind.speed }} км/ч</p>
         </div>
     {% endif %}
+
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A39a1029d14f6959fb471ab7fcd3e9f022776e17dc0b1ac431ae9456cb31d60b1&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
 </aside>

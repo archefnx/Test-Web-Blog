@@ -43,7 +43,6 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_URL, $url);
 
 $weatherData = json_decode(curl_exec($ch));
-curl_close($ch);
 
 
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);
