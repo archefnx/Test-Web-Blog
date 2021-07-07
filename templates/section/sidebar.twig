@@ -3,6 +3,11 @@
     <p>Сайдбар – это закрепленная боковая панель ресурса, область навигации или вспомогательной информации, графически отделенная от основной области контента.</p>
     <p>Пройдите тест пожалуйста<a href="test" class="btn btn-outline-primary text-center" target="_blank">Пройти</a></p>
     {% if weatherData is not null %}
-        {% include 'weatherApi.twig' %}
+        <div class="weather">
+            <h5>Погода в городе: <br>{{ weatherData.name }}</h5>
+            <p>Погода: {{ weatherData.main.temp_min }}°C</p>
+            <p>Влажность: {{ weatherData.main.humidity }}</p>
+            <p>Ветер: {{ weatherData.wind.speed }} км/ч</p>
+        </div>
     {% endif %}
 </aside>
