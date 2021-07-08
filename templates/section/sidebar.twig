@@ -6,11 +6,11 @@
     {% if weatherData is not null %}
         <div class="weather">
             <h5>Погода в городе: <br>{{ weatherData.name }}</h5>
-            <p>Погода: {{ weatherData.main.temp_min }}°C</p>
-            <p>Влажность: {{ weatherData.main.humidity }}</p>
-            <p>Ветер: {{ weatherData.wind.speed }} км/ч</p>
+            <p>Погода: {{ weatherData.main.temp_min }}°C<br>
+            Влажность: {{ weatherData.main.humidity }}%<br>
+            Ветер: {{ weatherData.wind.speed }} км/ч</p>
         </div>
     {% endif %}
 
-    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A39a1029d14f6959fb471ab7fcd3e9f022776e17dc0b1ac431ae9456cb31d60b1&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A39a1029d14f6959fb471ab7fcd3e9f022776e17dc0b1ac431ae9456cb31d60b1&amp;width=100%25&amp;height=350&amp;lang=ru_RU&amp;scroll=true"></script>
 </aside>

@@ -23,16 +23,9 @@ try {
     die();
 }
 
+
 $registr = new registrator($connection);
 $errors = [];
-
-$sqlLogin = "SELECT * FROM `users` WHERE `login` = '$login'";
-$sqlEmail = "SELECT * FROM `users` WHERE `email` = '$email'";
-
-if ($registr->query($sqlLogin))
-    $errors[] = 'Такой логин уже занят другим пользователем!';
-if ($registr->query($sqlEmail))
-    $errors[] = 'Этот email уже занят другим пользователем!';
 
 if (mb_strlen($login) == '')
     $errors[] = 'Введите логин!';
@@ -57,6 +50,14 @@ if (mb_strlen($password) < 5)
     $errors[] = 'пароль должен состоять минимум из 5 символов!';
 if (mb_strlen($password) > 20)
     $errors[] = 'Пароль не должен превышать 20 символов!';
+
+$sqlLogin = "SELECT * FROM `users` WHERE `login` = '$login'";
+$sqlEmail = "SELECT * FROM `users` WHERE `email` = '$email'";
+
+if ($registr->query($sqlLogin))
+    $errors[] = 'Такой логин уже занят другим пользователем!';
+if ($registr->query($sqlEmail))
+    $errors[] = 'Этот email уже занят другим пользователем!';
 
 
 
