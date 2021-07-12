@@ -6,9 +6,9 @@
     {% if weatherData is not null %}
         <div class="weather">
             <h5>Погода в городе: <br>{{ weatherData.name }}</h5>
-            <p>Погода: {{ weatherData.main.temp_min }}°C</p>
-            <p>Влажность: {{ weatherData.main.humidity }}</p>
-            <p>Ветер: {{ weatherData.wind.speed }} км/ч</p>
+            <p>Погода: {{ weatherData.main.temp_min }}°C<br>
+            Влажность: {{ weatherData.main.humidity }}%<br>
+            Ветер: {{ weatherData.wind.speed }} км/ч</p>
         </div>
     {% endif %}
 
