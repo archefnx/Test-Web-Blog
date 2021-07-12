@@ -2,18 +2,14 @@
 
 {% block body %}
 <main class="container col-md-7 text-center">
-    {% if checkAdmin is not null %}
-        <a href="new_post" target="_blank"><button class="btn btn-primary">Добавить новый пост</button></a>
-    {% endif %}
-
     <h1>Последние посты</h1>
 
     {% if regCookie is not null %}
-        <h5 class="alert alert-success">Вы успешно зарегистрированы!</h5>
+    <h5 class="alert alert-success">Вы успешно зарегистрированы!</h5>
     {% endif %}
 
-    {% include 'section/posts.twig' with posts %}
+        {% include 'section/posts.twig' with posts %}
 
-    <a href="/blog" class="btn btn-dark">Читать все посты</a>
+        <a href="/blog" class="btn btn-dark">Читать все посты</a>
 </main>
 {% endblock %}

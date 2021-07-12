@@ -7,7 +7,6 @@ use \Twig\Environment;
 use \Blog\postMapper;
 use \Blog\LatestPosts;
 use \Blog\Slim\TwigMiddleware;
-use \Blog\CheckAdmin;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -36,7 +35,7 @@ try {
 
 
 $apiKey ='e25f74c76d7bb4c2b57830ab9b129c16';
-$city = "Kostanay";
+$city = "Nur-Sultan";
 $url = "http://api.openweathermap.org/data/2.5/weather?q=" . $city . "&lang=ru&units=metric&appid=" . $apiKey;
 $ch = curl_init();
 
@@ -54,14 +53,12 @@ $app->get('/', function (Request $request, Response $response) use ($view, $conn
     $posts = $latestPosts->get(3);
 
     $regCookie = $_COOKIE['reg'];
-    $_COOKIE['login'] == 'olzhas' ? $checkAdmin = true : $checkAdmin = null;
 
     $body = $view->render('index.twig', [
         'posts' => $posts,
         'cookie' => $cookie,
         'regCookie' => $regCookie,
-        'weatherData' => $weatherData,
-        'checkAdmin' => $checkAdmin
+        'weatherData' => $weatherData
     ]);
     $response->getBody()->write($body);
     return $response;
@@ -81,15 +78,6 @@ $app->get('/other', function (Request $request, Response $response, $args) use (
 
     $body = $view->render('other.twig',[
         'cookie' => $cookie
-    ]);
-    $response->getBody()->write($body);
-    return $response;
-});
-
-$app->get('/new_post', function (Request $request, Response $response, $args) use ($view, $cookie) {
-
-    $body = $view->render('new_post.twig', [
-        'cookie' => $cookie,
     ]);
     $response->getBody()->write($body);
     return $response;
