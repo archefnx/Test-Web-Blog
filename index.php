@@ -1,5 +1,7 @@
 <?php
 
+use Blog\Database;
+use DevCoder\DotEnv;
 use DI\ContainerBuilder;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -17,23 +19,10 @@ $app->addRoutingMiddleware();
 
 $builer = new ContainerBuilder();
 $builer->addDefinitions('config/di.php');
+(new DotEnv(__DIR__ . '/.env'))->load();
 
 $container = $builer->build();
 AppFactory::setContainer($container);
-
-$config   = include 'config/database.php';
-$dsn      = $config['dsn'];
-$username = $config['username'];
-$password = $config['password'];
-
-try {
-    $connection = new PDO($dsn, $username, $password);
-    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-} catch (PDOException $exception){
-    echo 'Database exception: ' . $exception->getMessage();
-    die();
-}
 
 
 $apiKey ='e25f74c76d7bb4c2b57830ab9b129c16';
@@ -48,6 +37,7 @@ $weatherData = json_decode(curl_exec($ch));
 
 
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);
+$connection = $container->get(Database::class)->getConnection();
 $view = $container->get(Environment::class);
 $app->add(new TwigMiddleware($view));
 

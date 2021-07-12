@@ -6,11 +6,20 @@
     'aliases' => 
     array (
     ),
-    'reference' => '97483f2867047833aa73c660b8c38580b785b190',
+    'reference' => 'a47c8ca6d0e4fb4d5c072dc2b4addc5fbd2672cd',
     'name' => 'olzhas/testsite',
   ),
   'versions' => 
   array (
+    'devcoder-xyz/php-dotenv' => 
+    array (
+      'pretty_version' => '1.1.0',
+      'version' => '1.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e61e0a0ea70e088017d56bc8861d14d397aacdc2',
+    ),
     'fig/http-message-util' => 
     array (
       'pretty_version' => '1.1.5',
@@ -36,7 +45,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '97483f2867047833aa73c660b8c38580b785b190',
+      'reference' => 'a47c8ca6d0e4fb4d5c072dc2b4addc5fbd2672cd',
     ),
     'opis/closure' => 
     array (
