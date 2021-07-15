@@ -9,17 +9,17 @@ use PDO;
 class postMapper
 {
     /**
-     * @var PDO
+     * @var Database
      */
-    private PDO $connection;
+    private Database $database;
 
     /**
      * postMapper constructor.
-     * @param $connection
+     * @param Database $database
      */
-    public function __construct($connection)
+    public function __construct(Database $database)
     {
-        $this->connection = $connection;
+        $this->database = $database;
     }
 
     /**
@@ -28,7 +28,7 @@ class postMapper
      */
     public function getByUrlKey(string $urlKey): ?array
     {
-        $statement = $this->connection->prepare('SELECT * FROM `post` WHERE `url_key` = :url_key');
+        $statement = $this->database->getConnection()->prepare('SELECT * FROM `post` WHERE `url_key` = :url_key');
         $statement->execute([
             'url_key' => $urlKey
         ]);
@@ -45,7 +45,7 @@ class postMapper
         }
 
         $start = ($page - 1) * $limit;
-        $statement = $this->connection->prepare(
+        $statement = $this->database->getConnection()->prepare(
             'SELECT * FROM `post` ORDER BY `published_date` ' . $derection .
             ' LIMIT ' . $start . ',' . $limit
         );
@@ -57,7 +57,7 @@ class postMapper
 
     public function getTotalCount(): int
     {
-        $statement = $this->connection->prepare(
+        $statement = $this->database->getConnection()->prepare(
             'SELECT count(`id`) as total FROM `post`'
         );
 

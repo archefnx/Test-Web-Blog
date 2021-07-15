@@ -1,6 +1,7 @@
 <?php
 
 use Blog\Database;
+use Blog\Route\HomePage;
 use DevCoder\DotEnv;
 use DI\ContainerBuilder;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -8,11 +9,11 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 use \Twig\Environment;
 use \Blog\postMapper;
-use \Blog\LatestPosts;
 use \Blog\Slim\TwigMiddleware;
+use Blog\LatestPosts;
 
 require __DIR__ . '/vendor/autoload.php';
-$_COOKIE['user'] == '' ? $cookie = false : $cookie = true;
+
 
 $app = AppFactory::create();
 $app->addRoutingMiddleware();
@@ -25,15 +26,7 @@ $container = $builer->build();
 AppFactory::setContainer($container);
 
 
-$apiKey ='e25f74c76d7bb4c2b57830ab9b129c16';
-$city = "Kostanay";
-$url = "http://api.openweathermap.org/data/2.5/weather?q=" . $city . "&lang=ru&units=metric&appid=" . $apiKey;
-$ch = curl_init();
 
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_URL, $url);
-
-$weatherData = json_decode(curl_exec($ch));
 
 
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);
@@ -41,21 +34,7 @@ $connection = $container->get(Database::class)->getConnection();
 $view = $container->get(Environment::class);
 $app->add(new TwigMiddleware($view));
 
-$app->get('/', function (Request $request, Response $response) use ($view, $connection, $cookie, $weatherData) {
-    $latestPosts = new LatestPosts($connection);
-    $posts = $latestPosts->get(3);
-
-    $regCookie = $_COOKIE['reg'];
-
-    $body = $view->render('index.twig', [
-        'posts' => $posts,
-        'cookie' => $cookie,
-        'regCookie' => $regCookie,
-        'weatherData' => $weatherData
-    ]);
-    $response->getBody()->write($body);
-    return $response;
-});
+$app->get('/', HomePage::class . ':execute');
 
 $app->get('/about', function (Request $request, Response $response, $args) use ($view, $cookie) {
 

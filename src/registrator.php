@@ -7,17 +7,17 @@ use PDO;
 class registrator
 {
     /**
-     * @var PDO
+     * @var Database
      */
-    private PDO $connection;
+    private Database $database;
 
     /**
      * Registration constructor.
-     * @param PDO $connection
+     * @param Database $datavase
      */
-    public function __construct(PDO $connection)
+    public function __construct(Database $database)
     {
-        $this->connection = $connection;
+        $this->database = $database;
     }
 
     /**
@@ -28,7 +28,7 @@ class registrator
      */
     public function saveUser($login, $name, $email, $password)
     {
-        $statement = $this->connection->prepare(
+        $statement = $this->database->getConnection()->prepare(
             "INSERT INTO `users` (`login`, `name`, `email`, `password`) 
                             VALUES ('$login', '$name','$email', '$password')"
         );
@@ -42,7 +42,7 @@ class registrator
      */
     public function query($sql): array
     {
-        $statement = $this->connection->prepare($sql);
+        $statement = $this->database->getConnection()->prepare($sql);
         $statement->execute();
 
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
