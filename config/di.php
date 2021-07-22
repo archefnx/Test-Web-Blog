@@ -25,7 +25,4 @@ return [
         ->constructorParameter('username', getenv('DATABASE_USERNAME'))
         ->constructorParameter('passwd', getenv('DATABASE_PASSWORD'))
         ->constructorParameter('options', []),
-
-    CookiesClass::class => autowire(),
-    ApiClass::class => autowire(),
 ];

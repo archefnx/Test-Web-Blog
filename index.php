@@ -4,7 +4,6 @@ use Blog\Route\AboutPage;
 use Blog\Route\BlogPage;
 use Blog\Route\PostPage;
 use Blog\Route\HomePage;
-use Blog\Route\SignUpPage;
 use Blog\Slim\TwigMiddleware;
 use DevCoder\DotEnv;
 use DI\ContainerBuilder;
@@ -29,7 +28,5 @@ $app->get('/', HomePage::class . ':execute');
 $app->get('/about', AboutPage::class);
 $app->get('/blog[/{page}]', BlogPage::class);
 $app->get('/{url_key}', PostPage::class);
-
-$app->post('/signup', SignUpPage::class);
 
 $app->run();

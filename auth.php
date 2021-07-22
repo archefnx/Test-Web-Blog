@@ -1,5 +1,15 @@
 <?php
-require 'connection.php';
+$dsn='mysql:host=127.0.0.1;dbname=topsite';
+$username='mysql';
+$pass='mysql';
+
+try {
+    $connection = new PDO($dsn, $username, $pass);
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+} catch (PDOException $exception){
+    throw new \InvalidArgumentException($exception->getMessage());
+}
 
 $login = filter_var(trim($_POST['login']),  FILTER_SANITIZE_STRING);
 $password = filter_var(trim($_POST['password']),  FILTER_SANITIZE_STRING);
@@ -8,17 +18,19 @@ $errors = [];
 $password = md5($password."ggg123");
 
 $statement = $connection->prepare(
-    "SELECT * FROM `users` WHERE `login` = '$login' AND `password` = '$password'"
+    "SELECT * FROM `users` WHERE `login`='$login' AND `password`='$password'"
 );
 
 $statement->execute();
 $user = $statement->fetchAll();
 
-    if (($user) == ''){
-        $p = 'Такой пользователь не найден!';
-    }else{
-        setcookie('user', $user['name'], time() + 3600 * 24 * 30, "/");
+    if ($user != false){
+        setcookie('user', 'true', time() + 3600 * 24 * 30, "/");
+        $login = '';
+        $password = '';
         header('location: /');
+    }else{
+        $userErr = 'Такой пользователь не найден!';
     }
 
 ?>
@@ -34,14 +46,15 @@ $user = $statement->fetchAll();
     <link rel="stylesheet" href="css/reg.css">
     <title>Auth</title>
 </head>
-<body class="">
+<body>
+
 <h1 class="text-center">Форма авторизации</h1>
 <form action="" method="post" class="form-control">
-    <p class="alert alert-danger"><?php if ($_REQUEST['login'] != '') echo $p ?></p>
     <p><label for="login">Введите логин: </label><input type="text" name="login" id="login" class="form-control" placeholder="Логин"></p>
     <p><label for="password">Введите пароль: </label><input type="password" name="password" id="password" class="form-control" placeholder="Пароль"></p>
     <button type="submit" class="btn btn-outline-info">Войти</button>
 </form>
+
 </body>
 </html>
 

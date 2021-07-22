@@ -3,10 +3,9 @@ use Blog\registrator;
 
 require __DIR__ . '/vendor/autoload.php';
 
-$config   = include 'config/database.php';
-$dsn      = $config['dsn'];
-$username = $config['username'];
-$pass = $config['password'];
+$dsn      = 'mysql:host=127.0.0.1;dbname=topsite';
+$username = 'mysql';
+$pass = 'mysql';
 
 $login = filter_var(trim($_POST['login']),  FILTER_SANITIZE_STRING);
 $name = filter_var(trim($_POST['name']),  FILTER_SANITIZE_STRING);
@@ -66,6 +65,7 @@ if (empty($errors)) {
     $registr->saveUser($login, $name, $email, $password);
 
     setcookie('reg', true, time() + 10 , "/");
+
 
     header('location: /');
 }

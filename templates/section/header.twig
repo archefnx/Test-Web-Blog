@@ -13,11 +13,11 @@
                 <input type="search" class="form-control form-control-dark" placeholder="Поиск..." aria-label="Search">
             </form>
 
-            {% if cookie == '' %}
+            {% if cookie == 'false' %}
 
             <div class="text-end">
                 <button type="button" class="btn btn-dark"><a href="auth.php" target="_blank" class="a-control">Войти</a></button>
-                <button type="button" class="btn btn-info"><a href="signup" target="_blank" class="a-control">Регистрация</a></button>
+                <button type="button" class="btn btn-info"><a href="reg.php" target="_blank" class="a-control">Регистрация</a></button>
             </div>
 
             {% else %}

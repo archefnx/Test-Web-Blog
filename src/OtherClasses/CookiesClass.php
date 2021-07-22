@@ -4,24 +4,21 @@ namespace Blog\OtherClasses;
 
 class CookiesClass
 {
-    private bool $usernameCookie;
-    private bool $regCookie;
-
     public function getRegCookie()
     {
-        $this->regCookie = $_COOKIE['reg'] ?? 'false';
+        $regCookie = $_COOKIE['reg'] ?? 'false';
 
-        return $this->regCookie;
+        return $regCookie;
     }
 
-    /**
-     * @return bool
-     */
-    public function getUsernameCookie(): bool
+    public function getUsernameCookie(): string
     {
-        $_COOKIE['user'] == '' ? $this->usernameCookie = false : $this->usernameCookie = true;
+        if ($_COOKIE['user'] == 'true')
+            $usernameCookie = 'true';
+        else
+            $usernameCookie = 'false';
 
-        return $this->usernameCookie;
+        return $usernameCookie;
     }
 
 
