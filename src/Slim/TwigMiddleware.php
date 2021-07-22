@@ -32,12 +32,9 @@ class TwigMiddleware implements MiddlewareInterface
      * @param RequestHandlerInterface $handler
      * @return ResponseInterface
      */
-    public function process(
-        ServerRequestInterface $request,
-        RequestHandlerInterface $handler
-    ): ResponseInterface {
-        $this->environment
-            ->addExtension(new AssetExtension($request));
+    public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
+    {
+        $this->environment->addExtension(new AssetExtension($request));
         return $handler->handle($request);
     }
 }

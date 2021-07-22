@@ -1,16 +1,25 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
+    'pretty_version' => '1.0.0+no-version-set',
+    'version' => '1.0.0.0',
     'aliases' => 
     array (
     ),
-    'reference' => '97483f2867047833aa73c660b8c38580b785b190',
-    'name' => 'olzhas/testsite',
+    'reference' => NULL,
+    'name' => 'pronko/php-blog',
   ),
   'versions' => 
   array (
+    'devcoder-xyz/php-dotenv' => 
+    array (
+      'pretty_version' => '1.0.2',
+      'version' => '1.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e6d703bf7bfcb72c776a3d48a13e7674c6421fe0',
+    ),
     'fig/http-message-util' => 
     array (
       'pretty_version' => '1.1.5',
@@ -28,15 +37,6 @@
       array (
       ),
       'reference' => '181d480e08d9476e61381e04a71b34dc0432e812',
-    ),
-    'olzhas/testsite' => 
-    array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '97483f2867047833aa73c660b8c38580b785b190',
     ),
     'opis/closure' => 
     array (
@@ -73,6 +73,15 @@
       array (
       ),
       'reference' => '66daff34cbd2627740ffec9469ffbac9f8c8185c',
+    ),
+    'pronko/php-blog' => 
+    array (
+      'pretty_version' => '1.0.0+no-version-set',
+      'version' => '1.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => NULL,
     ),
     'psr/container' => 
     array (
@@ -169,12 +178,12 @@
     ),
     'slim/slim' => 
     array (
-      'pretty_version' => '4.8.1',
-      'version' => '4.8.1.0',
+      'pretty_version' => '4.8.0',
+      'version' => '4.8.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'c8934c35d9d98b1a1df9f99ee69b77a59e0aa820',
+      'reference' => 'c9bdc9e0d2f8613055632334ec6711b965d5fdf3',
     ),
     'symfony/polyfill-ctype' => 
     array (

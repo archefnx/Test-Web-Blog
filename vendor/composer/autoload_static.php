@@ -4,15 +4,15 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitef0da6be6913cbb779d91891309b7ce8
+class ComposerStaticInit20c14a9998f82c2868dc81beaef103da
 {
     public static $files = array (
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
-        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'b33e3d135e5d9e47d845c576147bda89' => __DIR__ . '/..' . '/php-di/php-di/src/functions.php',
     );
 
@@ -20,6 +20,7 @@ class ComposerStaticInitef0da6be6913cbb779d91891309b7ce8
         'T' => 
         array (
             'Twig\\' => 5,
+            'Test\\DevCoder\\' => 14,
         ),
         'S' => 
         array (
@@ -52,6 +53,7 @@ class ComposerStaticInitef0da6be6913cbb779d91891309b7ce8
         ),
         'D' => 
         array (
+            'DevCoder\\' => 9,
             'DI\\' => 3,
         ),
         'B' => 
@@ -64,6 +66,10 @@ class ComposerStaticInitef0da6be6913cbb779d91891309b7ce8
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Test\\DevCoder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/devcoder-xyz/php-dotenv/tests',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
@@ -96,8 +102,8 @@ class ComposerStaticInitef0da6be6913cbb779d91891309b7ce8
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Container\\' => 
         array (
@@ -123,6 +129,10 @@ class ComposerStaticInitef0da6be6913cbb779d91891309b7ce8
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
+        'DevCoder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/devcoder-xyz/php-dotenv/src',
+        ),
         'DI\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-di/php-di/src',
@@ -144,9 +154,9 @@ class ComposerStaticInitef0da6be6913cbb779d91891309b7ce8
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitef0da6be6913cbb779d91891309b7ce8::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitef0da6be6913cbb779d91891309b7ce8::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitef0da6be6913cbb779d91891309b7ce8::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit20c14a9998f82c2868dc81beaef103da::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit20c14a9998f82c2868dc81beaef103da::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit20c14a9998f82c2868dc81beaef103da::$classMap;
 
         }, null, ClassLoader::class);
     }

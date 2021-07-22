@@ -1,23 +1,10 @@
 {
-    "name": "olzhas/testsite",
-    "description": "topsite",
+    "name": "olzhas/site-tester",
     "authors": [
         {
-            "name": "user",
-            "email": "artykbaiev0000@gmail.com"
+            "name": "archefnx",
+            "email": "artykbaiev00@mail.ru"
         }
     ],
-    "minimum-stability": "stable",
-    "require": {
-        "slim/slim": "^4.8",
-        "slim/psr7": "^1.4",
-        "twig/twig": "^3.3",
-        "ext-pdo": "^7.4",
-        "php-di/php-di": "^6.3"
-    },
-    "autoload": {
-        "psr-4": {
-            "Blog\\": "src/"
-        }
-    }
+    "require": {}
 }

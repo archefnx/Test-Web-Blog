@@ -1,7 +1,7 @@
 <header class="p-3">
     <div class="container-fluid">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start mb-0">
-            <img src="{{ asset_url('img/top.png') }}" height="40">
+            <img src="{{ asset_url('/public/images/top.png') }}" height="40">
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="{{ base_url() }}" class="nav-link px-2 text-info buttonChangeColor">Главная</a></li>
@@ -17,7 +17,7 @@
 
             <div class="text-end">
                 <button type="button" class="btn btn-dark"><a href="auth.php" target="_blank" class="a-control">Войти</a></button>
-                <button type="button" class="btn btn-info"><a href="reg.php" target="_blank" class="a-control">Регистрация</a></button>
+                <button type="button" class="btn btn-info"><a href="signup" target="_blank" class="a-control">Регистрация</a></button>
             </div>
 
             {% else %}
