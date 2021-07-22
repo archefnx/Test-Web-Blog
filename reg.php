@@ -66,7 +66,6 @@ if (empty($errors)) {
 
     setcookie('reg', true, time() + 10 , "/");
 
-
     header('location: /');
 }
 ?>

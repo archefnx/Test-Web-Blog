@@ -10,7 +10,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Twig\Environment;
 
-class AboutPage
+class OtherPage
 {
     /**
      * @var Environment
@@ -41,8 +41,7 @@ class AboutPage
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $body = $this->view->render('about.twig', [
-            'name' => 'Max',
+        $body = $this->view->render('other.twig', [
             'cookie' => $this->cookie->getUsernameCookie(),
             'regCookie' => $this->cookie->getRegCookie(),
             'weatherData' => $this->weatherData->getWeatherData('Kostanay')

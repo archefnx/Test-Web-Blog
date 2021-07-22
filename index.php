@@ -2,6 +2,7 @@
 
 use Blog\Route\AboutPage;
 use Blog\Route\BlogPage;
+use Blog\Route\OtherPage;
 use Blog\Route\PostPage;
 use Blog\Route\HomePage;
 use Blog\Slim\TwigMiddleware;
@@ -22,10 +23,12 @@ AppFactory::setContainer($container);
 // Create app
 $app = AppFactory::create();
 
+
 $app->add($container->get(TwigMiddleware::class));
 
 $app->get('/', HomePage::class . ':execute');
 $app->get('/about', AboutPage::class);
+$app->get('/other', OtherPage::class);
 $app->get('/blog[/{page}]', BlogPage::class);
 $app->get('/{url_key}', PostPage::class);
 

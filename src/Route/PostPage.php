@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Blog\Route;
 
+use Blog\OtherClasses\ApiClass;
+use Blog\OtherClasses\CookiesClass;
 use Blog\PostMapper;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -21,15 +23,21 @@ class PostPage
      */
     private PostMapper $postMapper;
 
+
+    private CookiesClass $cookie;
+    private ApiClass $weatherData;
+
     /**
      * BlogPage constructor.
      * @param Environment $view
      * @param PostMapper $postMapper
      */
-    public function __construct(Environment $view, PostMapper $postMapper)
+    public function __construct(Environment $view, PostMapper $postMapper, CookiesClass $cookie, ApiClass $weatherData)
     {
         $this->view = $view;
         $this->postMapper = $postMapper;
+        $this->cookie = $cookie;
+        $this->weatherData = $weatherData;
     }
 
     /**
@@ -46,10 +54,17 @@ class PostPage
         $post = $this->postMapper->getByUrlKey((string) $args['url_key']);
 
         if (empty($post)) {
-            $body = $this->view->render('not-found.twig');
+            $body = $this->view->render('not-found.twig', [
+                'cookie' => $this->cookie->getUsernameCookie(),
+                'regCookie' => $this->cookie->getRegCookie(),
+                'weatherData' => $this->weatherData->getWeatherData('Kostanay')
+            ]);
         } else {
             $body = $this->view->render('post.twig', [
-                'post' => $post
+                'post' => $post,
+                'cookie' => $this->cookie->getUsernameCookie(),
+                'regCookie' => $this->cookie->getRegCookie(),
+                'weatherData' => $this->weatherData->getWeatherData('Kostanay')
             ]);
         }
         $response->getBody()->write($body);
