@@ -4,16 +4,26 @@
 ```
 APP_ENV=dev
 DATABASE_DNS=mysql:host=localhost;dbname=test;
+<<<<<<< HEAD
 DATABASE_USER=root
 DATABASE_PASSWORD=root
 ```
 
 **How to use ?**
+=======
+DATABASE_USER="root"
+DATABASE_PASSWORD=root
+MODULE_ENABLED=true
+```
+
+## Load the variables
+>>>>>>> f7cbf4fd4aeb636651e7ffe8e226cd2cac045d57
 
 ```php
 <?php
 use DevCoder\DotEnv;
 
+<<<<<<< HEAD
 (new DotEnv(__DIR__ . '/.env'))->load();
 
 echo getenv('APP_ENV');
@@ -23,3 +33,49 @@ echo getenv('DATABASE_DNS');
 ```
 Ideal for small project
 Simple and easy!
+=======
+$absolutePathToEnvFile = __DIR__ . '/.env';
+
+(new DotEnv($absolutePathToEnvFile))->load();
+```
+
+# Use them!
+```php
+/**
+ * string(33) "mysql:host=localhost;dbname=test;" 
+ */
+var_dump(getenv('DATABASE_DNS'));
+
+/**
+ * Removes double and single quotes from the variable:
+ * 
+ * string(4) "root" 
+ */
+var_dump(getenv('DATABASE_USER'));
+
+/**
+ * Processes booleans as such:
+ * 
+ * bool(true) 
+ */
+var_dump(getenv('MODULE_ENABLED'));
+```
+
+Ideal for small project
+
+Simple and easy!
+
+# Processors
+
+Also the variables are parsed according to the configuration passed as parameter to the constructor. The available processors are:
+
+## BooleanProcessor
+
+``VARIABLE=false`` will be processed to ```bool(false)```
+
+NOTE: ``VARIABLE="true"`` will be processed to ```string(4) "true"```
+
+## QuotedProcessor
+
+``VARIABLE="anything"`` will be processed to ```string(8) "anything"```
+>>>>>>> f7cbf4fd4aeb636651e7ffe8e226cd2cac045d57

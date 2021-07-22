@@ -2,4 +2,8 @@ Options -Indexes
 
 <IfModule mod_php7.c>
 php_flag engine 0
+<<<<<<< HEAD
 </IfModule>
+=======
+</IfModule>
+>>>>>>> f7cbf4fd4aeb636651e7ffe8e226cd2cac045d57
