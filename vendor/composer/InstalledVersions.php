@@ -30,33 +30,19 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-<<<<<<< HEAD
     'reference' => NULL,
     'name' => 'pronko/php-blog',
-=======
-    'reference' => 'a47c8ca6d0e4fb4d5c072dc2b4addc5fbd2672cd',
-    'name' => 'olzhas/testsite',
->>>>>>> f7cbf4fd4aeb636651e7ffe8e226cd2cac045d57
   ),
   'versions' => 
   array (
     'devcoder-xyz/php-dotenv' => 
     array (
-<<<<<<< HEAD
       'pretty_version' => '1.0.2',
       'version' => '1.0.2.0',
       'aliases' => 
       array (
       ),
       'reference' => 'e6d703bf7bfcb72c776a3d48a13e7674c6421fe0',
-=======
-      'pretty_version' => '1.1.0',
-      'version' => '1.1.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'e61e0a0ea70e088017d56bc8861d14d397aacdc2',
->>>>>>> f7cbf4fd4aeb636651e7ffe8e226cd2cac045d57
     ),
     'fig/http-message-util' => 
     array (
@@ -76,18 +62,6 @@ private static $installed = array (
       ),
       'reference' => '181d480e08d9476e61381e04a71b34dc0432e812',
     ),
-<<<<<<< HEAD
-=======
-    'olzhas/testsite' => 
-    array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'a47c8ca6d0e4fb4d5c072dc2b4addc5fbd2672cd',
-    ),
->>>>>>> f7cbf4fd4aeb636651e7ffe8e226cd2cac045d57
     'opis/closure' => 
     array (
       'pretty_version' => '3.6.2',

@@ -15,11 +15,7 @@ class PostMapper
     private Database $database;
 
     /**
-<<<<<<< HEAD
      * PostMapper constructor.
-=======
-     * postMapper constructor.
->>>>>>> f7cbf4fd4aeb636651e7ffe8e226cd2cac045d57
      * @param Database $database
      */
     public function __construct(Database $database)
@@ -33,11 +29,7 @@ class PostMapper
      */
     public function getByUrlKey(string $urlKey): ?array
     {
-<<<<<<< HEAD
         $statement = $this->getConnection()->prepare('SELECT * FROM post WHERE url_key = :url_key');
-=======
-        $statement = $this->database->getConnection()->prepare('SELECT * FROM `post` WHERE `url_key` = :url_key');
->>>>>>> f7cbf4fd4aeb636651e7ffe8e226cd2cac045d57
         $statement->execute([
             'url_key' => $urlKey
         ]);
@@ -61,13 +53,8 @@ class PostMapper
         }
 
         $start = ($page - 1) * $limit;
-<<<<<<< HEAD
         $statement = $this->getConnection()->prepare(
             'SELECT * FROM post ORDER BY published_date ' . $direction .
-=======
-        $statement = $this->database->getConnection()->prepare(
-            'SELECT * FROM `post` ORDER BY `published_date` ' . $derection .
->>>>>>> f7cbf4fd4aeb636651e7ffe8e226cd2cac045d57
             ' LIMIT ' . $start . ',' . $limit
         );
 
@@ -81,13 +68,8 @@ class PostMapper
      */
     public function getTotalCount(): int
     {
-<<<<<<< HEAD
         $statement = $this->getConnection()->prepare(
             'SELECT count(id) as total FROM post'
-=======
-        $statement = $this->database->getConnection()->prepare(
-            'SELECT count(`id`) as total FROM `post`'
->>>>>>> f7cbf4fd4aeb636651e7ffe8e226cd2cac045d57
         );
 
         $statement->execute();

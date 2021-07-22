@@ -4,7 +4,6 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "cdc7c01fdfe7fe77d0350dc6e2553b82",
     "packages": [
         {
@@ -19,22 +18,6 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/devcoder-xyz/php-dotenv/zipball/e6d703bf7bfcb72c776a3d48a13e7674c6421fe0",
                 "reference": "e6d703bf7bfcb72c776a3d48a13e7674c6421fe0",
-=======
-    "content-hash": "2285f2723432eb4428a8f20dc81deae0",
-    "packages": [
-        {
-            "name": "devcoder-xyz/php-dotenv",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/devcoder-xyz/php-dotenv.git",
-                "reference": "e61e0a0ea70e088017d56bc8861d14d397aacdc2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/devcoder-xyz/php-dotenv/zipball/e61e0a0ea70e088017d56bc8861d14d397aacdc2",
-                "reference": "e61e0a0ea70e088017d56bc8861d14d397aacdc2",
->>>>>>> f7cbf4fd4aeb636651e7ffe8e226cd2cac045d57
                 "shasum": ""
             },
             "require": {
@@ -61,15 +44,7 @@
                 }
             ],
             "description": "Parses .env files",
-<<<<<<< HEAD
             "time": "2021-02-22T09:55:45+00:00"
-=======
-            "support": {
-                "issues": "https://github.com/devcoder-xyz/php-dotenv/issues",
-                "source": "https://github.com/devcoder-xyz/php-dotenv/tree/1.1.0"
-            },
-            "time": "2021-07-04T14:56:15+00:00"
->>>>>>> f7cbf4fd4aeb636651e7ffe8e226cd2cac045d57
         },
         {
             "name": "fig/http-message-util",
