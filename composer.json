@@ -6,5 +6,10 @@
             "email": "artykbaiev00@mail.ru"
         }
     ],
-    "require": {}
+    "require": {
+        "ext-pdo": "*",
+        "ext-curl": "*",
+        "ext-http": "*",
+        "ext-mysqli": "*"
+    }
 }

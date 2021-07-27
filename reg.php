@@ -28,11 +28,6 @@ $errors = [];
 $sqlLogin = "SELECT * FROM `users` WHERE `login` = '$login'";
 $sqlEmail = "SELECT * FROM `users` WHERE `email` = '$email'";
 
-if ($registr->query($sqlLogin))
-    $errors[] = 'Такой логин уже занят другим пользователем!';
-if ($registr->query($sqlEmail))
-    $errors[] = 'Этот email уже занят другим пользователем!';
-
 if (mb_strlen($login) == '')
     $errors[] = 'Введите логин!';
 if (mb_strlen($login) < 4)
@@ -57,6 +52,10 @@ if (mb_strlen($password) < 5)
 if (mb_strlen($password) > 20)
     $errors[] = 'Пароль не должен превышать 20 символов!';
 
+if ($registr->query($sqlLogin))
+    $errors[] = 'Такой логин уже занят другим пользователем!';
+if ($registr->query($sqlEmail))
+    $errors[] = 'Этот email уже занят другим пользователем!';
 
 
 $password = md5($password."ggg123");
@@ -84,12 +83,15 @@ if (empty($errors)) {
 <body>
 <h1 class="text-center">Форма регистрации</h1>
 <form action="reg.php" method="post" class="form-control">
-    <p class="alert alert-danger"><?php if (isset($_POST['submit'])) echo array_shift($errors)?></p>
-    <p><label for="login">Введите логин: </label><input type="text" name="login" id="login" class="form-control" placeholder="Логин" value="<?php if ($_REQUEST['login']) echo $_REQUEST['login'] ?>"></p>
-    <p><label for="name">Введите имя: </label><input type="text" name="name" id="name" class="form-control" placeholder="Имя" value="<?php if ($_REQUEST['name']) echo $_REQUEST['name'] ?>"></p>
-    <p><label for="email">Введите email: </label><input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<?php if ($_REQUEST['email']) echo $_REQUEST['email'] ?>"></p>
+    <?php if (isset($_POST['submit'])): ?>
+    <p class="alert alert-danger"><?php echo array_shift($errors)?></p>
+    <?php endif ?>
+    <p><label for="login">Введите логин: </label><input type="text" name="login" id="login" class="form-control" placeholder="Логин" value="<?php if (isset($_REQUEST['login'])) echo $_REQUEST['login'] ?>"></p>
+    <p><label for="name">Введите имя: </label><input type="text" name="name" id="name" class="form-control" placeholder="Имя" value="<?php if (isset($_REQUEST['name'])) echo $_REQUEST['name'] ?>"></p>
+    <p><label for="email">Введите email: </label><input type="email" name="email" id="email" class="form-control" placeholder="Email" value="<?php if (isset($_REQUEST['email'])) echo $_REQUEST['email'] ?>"></p>
     <p><label for="password">Введите пароль: </label><input type="password" name="password" id="password" class="form-control" placeholder="Пароль"></p>
-    <button type="submit" name="submit" id="submit" class="btn btn-outline-info">Зарегистрироватся</button>
+    <button type="submit" name="submit" id="submit" class="btn btn-outline-dark">Зарегистрироватся</button>
+    <button class="btn btn-outline-info a-control"><a href="/" class="text-decoration-none">На главную</a></button>
 </form>
 </body>
 </html>

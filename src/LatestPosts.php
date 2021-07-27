@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Blog;
 
+use mysqli;
+
 class LatestPosts
 {
     /**
@@ -26,6 +28,8 @@ class LatestPosts
      */
     public function get(int $limit): ?array
     {
+        $this->setEncoding('utf8mb4');
+
         $statement = $this->database->getConnection()->prepare(
             'SELECT * FROM post ORDER BY published_date DESC LIMIT ' . $limit
         );
@@ -33,5 +37,16 @@ class LatestPosts
         $statement->execute();
 
         return $statement->fetchAll();
+    }
+
+    private function setEncoding(string $encoding)
+    {
+        $mysqli = new mysqli("localhost", "mysql", "mysql", "topsite");
+        $mysqli->set_charset("$encoding");
+
+        $statement = $this->database->getConnection()->prepare(
+            'SET NAMES ' . $encoding
+        );
+        $statement->execute();
     }
 }
