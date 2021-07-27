@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Test</title>
+</head>
+
+<body class="container">
+    {% include 'section/header.twig' %}
+
+    <form class="form-control" method="post" action="../testHandler.php">
+        <div>
+            <p>У вас появились деньги. Могли бы вы истратить все, что у вас есть,<br> на подарки друзьям?</p>
+            <p>
+                <label><input type="radio" name="q1" value="yes">Да</label><br>
+            <label><input type="radio" name="q1" value="no">Нет</label>
+            </p>
+        </div>
+        <div>
+            <p>Товарищ рассказывает вам о своих невзгодах.<br> Дадите ли вы ему понять, что вас это мало интересует, даже если это так?</p>
+            <p>
+                <label><input type="radio" name="q2" value="yes">Да</label><br>
+                <label><input type="radio" name="q2" value="no">Нет</label>
+            </p>
+        </div>
+        <div>
+            <p>Если ваш партнер плохо играет в шахматы или другую игру,<br> будете ли вы иногда ему поддаваться, чтобы сделать приятное?</p>
+            <p>
+                <label><input type="radio" name="q3" value="yes">Да</label><br>
+                <label><input type="radio" name="q3" value="no">Нет</label>
+            </p>
+        </div>
+        <div>
+            <p>Часто ли вы говорите приятное людям, просто чтобы поднять им настроение?</p>
+            <p>
+                <label><input type="radio" name="q4" value="yes">Да</label><br>
+                <label><input type="radio" name="q4" value="no">Нет</label>
+            </p>
+        </div>
+        <button type="submit" class="btn btn-info mt-3">Отправить</button>
+    </form>
+
+    {% include 'section/footer.twig' %}
+</body>
+</html>

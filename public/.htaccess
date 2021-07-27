@@ -1,0 +1,7 @@
+Options -Indexes
+
+AddDefaultCharset utf-8
+
+<IfModule mod_php7.c>
+php_flag engine 0
+</IfModule>

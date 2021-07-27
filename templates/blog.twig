@@ -1,0 +1,16 @@
+{% extends 'base.twig' %}
+
+{% block body %}
+    <main class="container col-md-7 text-center">
+        <h1>Все посты</h1>
+
+        {% include 'section/posts.twig' with posts %}
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="container col">
+                {% include 'section/pagination.twig' with pagination %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

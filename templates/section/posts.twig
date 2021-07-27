@@ -1,0 +1,16 @@
+{% for post in posts %}
+    <hr>
+    <div class="container-fluid row">
+        <div class="p-1 mb-4">
+            {% if post.image_path is not null %}
+                <img src="{{ asset_url(post.image_path) }}" width="430" alt="{{ post.title|escape }}">
+            {% endif %}
+            <div class="mt-3">
+                <h5 class="card-title">{{ post.title|escape }}</h5>
+                <span class="text-muted">Olzhas Artykbaev | {{ post.published_date|date("F d, Y") }}</span>
+                <p class="mt-1">{{ post.description }}</p>
+                <a href="{{ url(post.url_key) }}" class="btn btn-primary">Читать больше...</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}

@@ -1,0 +1,22 @@
+aside {
+    min-height: 700px;
+}
+
+main {
+    min-height: 860px;
+}
+
+.a-control {
+    color: white;
+    text-decoration: none;
+}
+
+.buttonChangeColor {
+    text-decoration: none;
+    color: #A9A9A9;
+}
+
+a.buttonChangeColor:hover {
+    color:  #7abaff;
+    text-shadow: 0 0 1px  #7abaff;
+}

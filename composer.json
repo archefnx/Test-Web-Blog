@@ -1,0 +1,13 @@
+{
+    "name": "olzhas/site-tester",
+    "authors": [
+        {
+            "name": "archefnx",
+            "email": "artykbaiev00@mail.ru"
+        }
+    ],
+  "config": {
+
+    "platform-check": false
+}
+}

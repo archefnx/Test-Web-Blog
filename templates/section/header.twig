@@ -1,0 +1,42 @@
+<header class="p-3">
+    <div class="container-fluid">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start mb-0">
+            <img src="{{ asset_url('/public/images/top.png') }}" height="40">
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="{{ base_url() }}" class="nav-link px-2 text-info buttonChangeColor">Главная</a></li>
+                <li><a href="{{ url('about') }}" class="nav-link px-2 text-dark buttonChangeColor">Про нас</a></li>
+                <li><a href="{{ url('other') }}" class="nav-link px-2 text-dark buttonChangeColor">Другое</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                <input type="search" class="form-control form-control-dark" placeholder="Поиск..." aria-label="Search">
+            </form>
+
+            {% if cookie == 'false' %}
+
+            <div class="text-end">
+                <button type="button" class="btn btn-dark"><a href="auth.php" class="a-control">Войти</a></button>
+                <button type="button" class="btn btn-info"><a href="reg.php" class="a-control">Регистрация</a></button>
+            </div>
+
+            {% else %}
+
+                <div class="dropdown text-end">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://fainaidea.com/wp-content/uploads/2019/06/acastro_190322_1777_apple_streaming_0003.0.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="/profile">Профиль</a></li>
+                        <li><a class="dropdown-item" href="/setting">Настройки</a></li>
+                        <li><a class="dropdown-item" href="/gift">Награды</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/exit.php">Выйти</a></li>
+                    </ul>
+                </div>
+
+            {% endif %}
+        </div>
+        <hr>
+    </div>
+</header>
