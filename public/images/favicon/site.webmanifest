@@ -1,0 +1,14 @@
+{
+    "name": "Top2site",
+    "short_name": "Top2site",
+    "icons": [
+        {
+            "src": "/android-chrome-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#6c32b1",
+    "background_color": "#6c32b1",
+    "display": "standalone"
+}
